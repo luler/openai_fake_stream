@@ -1,0 +1,13 @@
+services:
+  openai_fake_stream:
+    build: .
+    restart: always
+    ports:
+      - 11223:3000
+    volumes:
+      - ./runtime:/app/runtime
+    env_file:
+      - .env
+    environment:
+      - TZ=${TZ:-Asia/Shanghai}
+      - PORT=3000
